@@ -5,6 +5,7 @@ import { QueryProvider } from "@/providers/QueryProvider";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { AnimatedBackground } from "@/components/animations/animated-background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,8 +41,9 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <QueryProvider>
+            <AnimatedBackground />
             <Navbar />
-            <main className="min-h-screen pt-20">
+            <main className="min-h-screen relative z-10">
               {children}
             </main>
             <Footer />
