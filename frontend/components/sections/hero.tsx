@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { siteConfig } from '@/lib/config';
 
 export function Hero() {
   return (
@@ -31,17 +32,19 @@ export function Hero() {
             className="space-y-8"
           >
             {/* Status Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] shadow-[var(--shadow-soft)]"
-            >
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm font-medium text-[var(--text-secondary)] uppercase tracking-wider">
-                Available for Work
-              </span>
-            </motion.div>
+            {siteConfig.availability.isAvailable && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1, duration: 0.4 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] shadow-[var(--shadow-soft)]"
+              >
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-sm font-medium text-[var(--text-secondary)] uppercase tracking-wider">
+                  {siteConfig.availability.statusText}
+                </span>
+              </motion.div>
+            )}
 
             {/* Main Headline */}
             <div className="space-y-4">
@@ -53,7 +56,7 @@ export function Hero() {
                 style={{ letterSpacing: '-0.02em' }}
               >
                 Hi, I am
-                <span className="block text-[var(--accent)]">Faizan Popatiya</span>
+                <span className="block text-[var(--accent)]">{siteConfig.personal.name}</span>
               </motion.h1>
 
               <motion.p
@@ -63,8 +66,7 @@ export function Hero() {
                 className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl leading-relaxed"
                 style={{ lineHeight: '1.6' }}
               >
-                AI/ML Engineer specializing in <strong className="font-semibold text-[var(--text-primary)]">GenAI, LLMs,</strong> and production-grade machine learning systems. 
-                Transforming complex data into intelligent solutions.
+                {siteConfig.personal.shortBio}
               </motion.p>
             </div>
 

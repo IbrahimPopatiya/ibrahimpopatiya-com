@@ -4,33 +4,34 @@ import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { getProjects } from '@/lib/content';
+import { siteConfig } from '@/lib/config';
 
-export function FeaturedProjects() {
-  const allProjects = getProjects();
-  const featuredProjects = allProjects
-    .filter((project) => project.featured)
-    .slice(0, 3)
-    .map((project) => ({
-      title: project.title,
-      description: project.description,
-      image: project.image,
-      tags: project.tags,
-      href: `/projects/${project.slug}`,
-    }));
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  href: string;
+}
+
+interface FeaturedProjectsProps {
+  projects: Project[];
+}
+
+export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   return (
     <SectionWrapper id="projects" variant="secondary">
       <FadeInUp>
         <div className="text-center mb-16">
-          <h2 className="mb-4">Featured Projects</h2>
+          <h2 className="mb-4">{siteConfig.sections.featuredProjects.title}</h2>
           <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
-            A selection of my recent work showcasing expertise in modern web development
+            {siteConfig.sections.featuredProjects.description}
           </p>
         </div>
       </FadeInUp>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {featuredProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <FadeInUp key={project.title} delay={index * 0.1}>
             <ProjectCard {...project} />
           </FadeInUp>

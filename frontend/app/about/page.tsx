@@ -3,38 +3,14 @@ import Image from 'next/image';
 import { FadeInUp } from '@/components/animations/reveal';
 import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { Brain, Cpu, Database, Zap } from 'lucide-react';
+import { siteConfig } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: 'About - AI/ML Engineer',
-  description: 'Learn about my experience in AI/ML engineering, from building LLM applications to deploying production ML systems.',
+  title: `About - ${siteConfig.personal.title}`,
+  description: siteConfig.personal.longBio,
 };
 
-const timeline = [
-  {
-    year: '2024',
-    title: 'Senior AI/ML Engineer',
-    company: 'AI Startup',
-    description: 'Leading development of production LLM applications and RAG systems serving 1M+ queries monthly',
-  },
-  {
-    year: '2023',
-    title: 'ML Engineer',
-    company: 'Healthcare Tech',
-    description: 'Built and deployed custom fine-tuned medical LLMs with 95% accuracy on clinical tasks',
-  },
-  {
-    year: '2022',
-    title: 'Data Scientist',
-    company: 'Enterprise SaaS',
-    description: 'Developed ML pipelines for real-time sentiment analysis processing 50M+ posts daily',
-  },
-  {
-    year: '2021',
-    title: 'Computer Science & AI',
-    company: 'University',
-    description: 'Specialized in Machine Learning, Deep Learning, and Natural Language Processing',
-  },
-];
+const timeline = siteConfig.experience;
 
 const values = [
   {
@@ -70,7 +46,7 @@ export default function AboutPage() {
               {/* Image */}
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-[var(--bg-tertiary)]">
                 <Image
-                  src="/avatar.svg"
+                  src={siteConfig.personal.avatar}
                   alt="Profile"
                   fill
                   className="object-cover"
@@ -82,14 +58,10 @@ export default function AboutPage() {
               <div>
                 <h1 className="mb-6">About Me</h1>
                 <p className="text-xl text-[var(--text-secondary)] mb-6">
-                  I'm an AI/ML Engineer with 3+ years of specialized experience in
-                  Python development, Large Language Models, and GenAI applications.
-                  I build production-grade AI systems that solve real business problems.
+                  {siteConfig.personal.longBio}
                 </p>
                 <p className="text-lg text-[var(--text-secondary)]">
-                  From fine-tuning LLMs to building RAG systems and deploying ML pipelines
-                  at scale, I focus on creating reliable, accurate AI solutions that
-                  deliver measurable impact.
+                  {siteConfig.personal.extendedBio}
                 </p>
               </div>
             </div>
@@ -142,7 +114,7 @@ export default function AboutPage() {
                 <div className="mb-1 text-sm font-medium text-[var(--accent)]">
                   {item.year}
                 </div>
-                <h3 className="text-xl font-semibold mb-1">{item.title}</h3>
+                <h3 className="text-xl font-semibold mb-1">{item.role}</h3>
                 <div className="text-[var(--text-muted)] mb-2">{item.company}</div>
                 <p className="text-[var(--text-secondary)]">{item.description}</p>
               </div>

@@ -11,42 +11,9 @@ import {
   Network,
   TrendingUp
 } from 'lucide-react';
+import { siteConfig } from '@/lib/config';
 
-const experience = [
-  {
-    year: '2024',
-    role: 'Senior AI/ML Engineer',
-    company: 'AI Startup',
-    duration: '2023 - Present',
-    points: [
-      'Leading development of production LLM applications',
-      'Built RAG systems serving 1M+ queries monthly',
-      'Improved model performance by 40%',
-    ],
-  },
-  {
-    year: '2023',
-    role: 'ML Engineer',
-    company: 'Healthcare Tech',
-    duration: '2022 - 2023',
-    points: [
-      'Fine-tuned medical LLMs with 95% accuracy',
-      'Deployed models for clinical decision support',
-      'Reduced inference time by 60%',
-    ],
-  },
-  {
-    year: '2022',
-    role: 'Data Scientist',
-    company: 'Enterprise SaaS',
-    duration: '2021 - 2022',
-    points: [
-      'Built ML pipelines for sentiment analysis',
-      'Processed 50M+ posts daily',
-      'Improved prediction accuracy by 30%',
-    ],
-  },
-];
+const experience = siteConfig.experience;
 
 const skillCategories = [
   {
@@ -84,16 +51,16 @@ export function Skills() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-primary)] border border-[var(--border)] mb-6">
             <TrendingUp className="w-4 h-4 text-[var(--accent)]" />
             <span className="text-sm font-medium text-[var(--text-secondary)] uppercase tracking-wider">
-              Skills & Experience
+              {siteConfig.sections.skills.badge}
             </span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4" style={{ letterSpacing: '-0.02em' }}>
-            AI & ML Expertise
+            {siteConfig.sections.skills.title}
           </h2>
           
           <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Specialized in cutting-edge AI technologies, from LLMs to production ML systems
+            {siteConfig.sections.skills.description}
           </p>
         </div>
       </FadeInUp>
@@ -138,7 +105,7 @@ export function Skills() {
                     </div>
 
                     <ul className="space-y-1.5 mt-3">
-                      {exp.points.map((point, i) => (
+                      {exp.highlights.map((point, i) => (
                         <li key={i} className="text-sm text-[var(--text-secondary)] flex items-start gap-2">
                           <span className="text-[var(--accent)] mt-1">•</span>
                           <span>{point}</span>

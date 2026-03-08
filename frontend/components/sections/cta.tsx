@@ -5,6 +5,7 @@ import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight, Mail, MessageSquare } from 'lucide-react';
+import { siteConfig } from '@/lib/config';
 
 export function CTA() {
   return (
@@ -23,11 +24,11 @@ export function CTA() {
             </div>
 
             <h2 className="text-white mb-4">
-              Let's Work Together
+              {siteConfig.cta.heading}
             </h2>
             
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Have a project in mind? Let's discuss how we can create something amazing together.
+              {siteConfig.cta.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -37,18 +38,18 @@ export function CTA() {
                   size="lg" 
                   className="gap-2 group bg-white text-[var(--accent)] hover:bg-white/90"
                 >
-                  Start a Conversation
+                  {siteConfig.cta.primaryButtonText}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="mailto:hello@example.com">
+              <Link href={`mailto:${siteConfig.contact.email}`}>
                 <Button 
                   variant="ghost" 
                   size="lg"
                   className="gap-2 text-white hover:bg-white/10 border border-white/20"
                 >
                   <Mail className="w-5 h-5" />
-                  Send Email
+                  {siteConfig.cta.secondaryButtonText}
                 </Button>
               </Link>
             </div>

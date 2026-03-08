@@ -1,11 +1,12 @@
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { siteConfig } from '@/lib/config';
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Mail, href: 'mailto:hello@example.com', label: 'Email' },
+  { icon: Github, href: siteConfig.social.github, label: 'GitHub' },
+  { icon: Linkedin, href: siteConfig.social.linkedin, label: 'LinkedIn' },
+  { icon: Twitter, href: siteConfig.social.twitter, label: 'Twitter' },
+  { icon: Mail, href: `mailto:${siteConfig.contact.email}`, label: 'Email' },
 ];
 
 export function Footer() {

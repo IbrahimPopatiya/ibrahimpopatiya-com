@@ -7,14 +7,9 @@ import { motion } from 'framer-motion';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
+import { siteConfig } from '@/lib/config';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-];
+const navLinks = siteConfig.navigation;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);

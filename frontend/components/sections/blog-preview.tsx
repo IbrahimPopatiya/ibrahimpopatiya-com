@@ -6,48 +6,35 @@ import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { siteConfig } from '@/lib/config';
 
-const recentPosts = [
-  {
-    title: 'Building Performant React Applications',
-    excerpt: 'Learn advanced techniques for optimizing React apps and improving user experience through performance enhancements.',
-    date: 'Feb 28, 2026',
-    readingTime: '8 min read',
-    category: 'React',
-    href: '/blog/performant-react-applications',
-  },
-  {
-    title: 'Mastering TypeScript in 2026',
-    excerpt: 'A comprehensive guide to leveraging TypeScript features for building type-safe, scalable applications.',
-    date: 'Feb 25, 2026',
-    readingTime: '12 min read',
-    category: 'TypeScript',
-    href: '/blog/mastering-typescript-2026',
-  },
-  {
-    title: 'The Future of Web Animation',
-    excerpt: 'Exploring modern animation techniques with Framer Motion and CSS animations for delightful user experiences.',
-    date: 'Feb 22, 2026',
-    readingTime: '6 min read',
-    category: 'Animation',
-    href: '/blog/future-of-web-animation',
-  },
-];
+interface BlogPost {
+  title: string;
+  excerpt: string;
+  date: string;
+  readingTime: string;
+  category: string;
+  href: string;
+}
 
-export function BlogPreview() {
+interface BlogPreviewProps {
+  posts: BlogPost[];
+}
+
+export function BlogPreview({ posts }: BlogPreviewProps) {
   return (
     <SectionWrapper id="blog" variant="secondary">
       <FadeInUp>
         <div className="text-center mb-16">
-          <h2 className="mb-4">Latest Articles</h2>
+          <h2 className="mb-4">{siteConfig.sections.blog.title}</h2>
           <p className="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Thoughts on web development, design, and technology
+            {siteConfig.sections.blog.description}
           </p>
         </div>
       </FadeInUp>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {recentPosts.map((post, index) => (
+        {posts.map((post, index) => (
           <FadeInUp key={post.title} delay={index * 0.1}>
             <BlogCard {...post} />
           </FadeInUp>
