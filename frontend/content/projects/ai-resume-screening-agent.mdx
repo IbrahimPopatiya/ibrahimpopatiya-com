@@ -1,0 +1,225 @@
+---
+description: An AI-powered recruitment assistant that analyzes resumes,
+  evaluates candidates, answers recruiter questions, and generates
+  feedback emails.
+featured: true
+githubUrl: "https://github.com/IbrahimPopatiya/ai_resume_screening"
+image: /projects/resume_agent.png
+longDescription: AI Resume Screening & Feedback Agent is an intelligent
+  recruitment assistant that automates resume analysis, candidate
+  evaluation, and recruiter interactions. Built using Python, FastAPI,
+  and OpenAI APIs, the system extracts candidate information, ranks
+  applicants, answers recruiter queries, and generates automated
+  feedback emails to streamline hiring workflows.
+tags:
+- Python
+- FastAPI
+- OpenAI
+- Gradio
+- PostgreSQL
+- AI/ML
+title: AI Resume Screening & Feedback Agent
+---
+
+## Project Overview
+
+Recruiters often need to manually read and evaluate hundreds of resumes
+for a single role. This process is time‑consuming and can lead to
+inconsistent candidate evaluation.
+
+The AI Resume Screening & Feedback Agent was developed to automate the
+initial screening stage of recruitment. The system reads resumes,
+extracts key candidate information, evaluates candidate suitability for
+roles, and assists recruiters by answering questions about applicants.
+
+The platform acts as an AI recruitment assistant capable of
+significantly reducing manual workload while improving consistency and
+efficiency in hiring decisions.
+
+## Key Features
+
+-   **Resume Parsing & Information Extraction**: Automatically reads
+    resumes and extracts candidate details such as skills, experience,
+    and education.
+-   **Candidate Profile Building**: Constructs structured candidate
+    profiles from unstructured resume data.
+-   **AI‑Powered Candidate Evaluation**: Uses LLM-based analysis to rank
+    and evaluate candidates for specific roles.
+-   **Recruiter Question Answering**: Recruiters can ask questions about
+    candidates and receive AI-generated responses.
+-   **Automated Feedback Email Generation**: Generates personalized
+    candidate feedback emails automatically using AI.
+-   **Modular AI Agent Architecture**: Designed with modular components
+    to easily extend recruitment workflows.
+
+## Technical Implementation
+
+### Architecture
+
+The system is designed using a modular AI agent architecture where each
+component handles a specific task in the recruitment pipeline.
+
+-   FastAPI backend for handling API requests
+-   AI agent responsible for resume analysis and evaluation
+-   Gradio interface for recruiter interaction
+-   PostgreSQL database for storing candidate data and evaluations
+-   Email integration for sending automated feedback
+
+This architecture ensures scalability while allowing independent
+development of each module.
+
+### Frontend
+
+The project uses Gradio to provide an interactive interface where
+recruiters can upload resumes and interact with the AI agent.
+
+``` typescript
+// Example frontend interaction with API
+async function analyzeResume(file) {
+  const formData = new FormData();
+  formData.append("resume", file);
+
+  const response = await fetch("/api/resume/analyze", {
+    method: "POST",
+    body: formData
+  });
+
+  return response.json();
+}
+```
+
+**Key Technologies:**
+
+-   Interface: Gradio
+-   API Communication: REST API
+-   Interaction: Resume upload and recruiter Q&A interface
+
+### Backend
+
+FastAPI powers the backend API responsible for resume processing and AI
+agent interaction.
+
+``` python
+from fastapi import FastAPI, UploadFile
+
+app = FastAPI()
+
+@app.post("/api/resume/analyze")
+async def analyze_resume(file: UploadFile):
+    return {"message": "Resume received and processing started"}
+```
+
+**Infrastructure:**
+
+-   API Framework: FastAPI
+-   Database: PostgreSQL
+-   Email Service: SendGrid
+-   Dependency Management: uv
+-   Server: Uvicorn
+
+### AI/ML Components
+
+The AI system analyzes candidate resumes and generates insights using
+large language models.
+
+-   **Model Used**: OpenAI GPT models
+-   **Information Extraction**: Structured candidate data generation
+-   **Candidate Evaluation**: AI-based ranking and suitability scoring
+-   **Prompt Engineering**: Structured prompts to evaluate candidate
+    skills and experience
+
+``` python
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.responses.create(
+    model="gpt-4.1",
+    input="Evaluate this candidate for a backend engineer role."
+)
+```
+
+## Challenges & Solutions
+
+### Challenge 1: Extracting Structured Data from Unstructured Resumes
+
+**Problem:** Resumes are often written in different formats and layouts,
+making consistent data extraction difficult.
+
+**Solution:** Implemented AI-based parsing using structured prompts and
+resume preprocessing to reliably extract candidate information.
+
+### Challenge 2: Candidate Evaluation Consistency
+
+**Problem:** Human recruiters may evaluate candidates differently
+depending on subjective judgment.
+
+**Solution:** Developed AI evaluation prompts that analyze candidate
+experience, skills, and education against job requirements to produce
+consistent rankings.
+
+## Results & Impact
+
+-   **Efficiency**: Significantly reduces time required for initial
+    resume screening.
+-   **Automation**: Eliminates repetitive manual evaluation tasks.
+-   **Consistency**: AI-based scoring provides standardized candidate
+    evaluation.
+-   **Scalability**: Capable of processing large batches of resumes
+    automatically.
+
+## Key Learnings
+
+1.  **AI Agent Design**: Learned how to design modular AI systems for
+    real-world automation workflows.
+2.  **LLM Prompt Engineering**: Developed structured prompts for resume
+    evaluation and candidate ranking.
+3.  **Backend System Design**: Built scalable APIs using FastAPI for
+    AI-powered applications.
+4.  **Automation in Recruitment**: Gained insight into how AI can
+    improve hiring efficiency.
+
+## Future Enhancements
+
+-   [ ] Integrate vector search for candidate skill matching
+-   [ ] Add recruiter dashboard for candidate analytics
+-   [ ] Support multiple job role evaluations
+-   [ ] Implement interview scheduling automation
+
+## Screenshots / Demos
+
+Future versions of the system will include a full recruiter dashboard
+for visualizing candidate evaluations and analytics.
+
+![Project Screenshot](/projects/ai-resume-screening-preview.png)
+
+## Technologies Used
+
+**Frontend:**
+
+-   Gradio
+-   TypeScript (API interaction examples)
+
+**Backend:**
+
+-   Python
+-   FastAPI
+-   PostgreSQL
+
+**AI/ML:**
+
+-   OpenAI API
+-   Prompt Engineering
+-   Resume Information Extraction
+
+**DevOps:**
+
+-   Uvicorn
+-   Docker (planned)
+-   CI/CD (future)
+
+## Links
+
+-   GitHub Repository:
+    https://github.com/IbrahimPopatiya/ai_resume_screening
+-   API Documentation: http://localhost:8000/docs

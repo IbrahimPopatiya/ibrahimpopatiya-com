@@ -16,31 +16,31 @@ export const siteConfig = {
 
   // Personal Information
   personal: {
-    name: 'Faizan Popatiya',
-    firstName: 'Faizan',
+    name: 'Ibrahim Popatiya',
+    firstName: 'Ibrahim',
     lastName: 'Popatiya',
-    title: 'GenAI Engineer',
+    title: 'Software Developer',
     tagline: 'Building Intelligent AI Solutions',
-    shortBio: 'GenAI Engineer specializing in GenAI, LLMs, and production-grade machine learning systems. Transforming complex data into intelligent solutions.',
-    longBio: "I'm a GenAI Engineer with 3+ years of specialized experience in Python development, Large Language Models, and GenAI applications. I build production-grade AI systems that solve real business problems.",
+    shortBio: 'Software Developer specializing in GenAI, LLMs, and production-grade machine learning systems. Transforming complex data into intelligent solutions.',
+    longBio: "I'm a Software Developer with Python development, Large Language Models, and GenAI applications. I build production-grade AI systems that solve real business problems.",
     extendedBio: "From fine-tuning LLMs to building RAG systems and deploying ML pipelines at scale, I focus on creating reliable, accurate AI solutions that deliver measurable impact.",
-    yearsExperience: '3+',
+    yearsExperience: "Dr. Babasaheb Ambedkar Technological University",
     avatar: '/avatar.svg',
   },
 
   // Contact Information
   contact: {
-    email: 'faizan.popatiya.work@gmail.com',
+    email: 'ibrahim.popatiya3@gmail.com',
     location: 'Hyderabad', // Optional
-    resume: '/resume.pdf', // Path to resume file in public folder
+    resume: './Ibrahim_resume.pdf', // Path to resume file in public folder
   },
 
   // Social Media Links
   social: {
-    github: 'https://github.com/fayzan9',
-    linkedin: 'https://www.linkedin.com/in/faizan-popatiya-452980250/',
-    twitter: 'https://twitter.com/yourhandle',
-    leetcode: 'https://leetcode.com/u/fayzanpopatiya/',
+    github: 'https://github.com/IbrahimPopatiya',
+    linkedin: 'https://www.linkedin.com/in/ibrahim-popatiya-142973333/',
+    twitter: 'https://x.com/PopatiyaIbrahim',
+    leetcode: 'https://leetcode.com/u/im_loser22/',
     // Add more as needed
   },
 
@@ -54,26 +54,10 @@ export const siteConfig = {
   // Experience Timeline (for About and Skills pages)
   experience: [
     {
-      year: 'Present',
-      role: 'Senior Software Developer',
-      company: 'Cognida.ai',
-      duration: 'Aug 2023 - Present',
-      description: 'Leading development of GenAI applications using LLMs, vector databases, and Python frameworks. Building RAG systems and fine-tuning models for improved performance.',
-      highlights: []
-    },
-    {
-      year: '2023',
-      role: 'Software Developer Intern',
-      company: 'Cognida.ai',
-      duration: 'Feb 2023 - Aug 2023',
-      description: 'Developed and deployed GenAI applications using LLMs, vector databases, and Python frameworks. Built RAG systems and fine-tuned models for improved performance.',
-      highlights: []
-    },
-    {
-      year: '2019',
+      year: '2026',
       role: 'B.Tech in Computer Science Engineering',
       company: 'Dr. Babasaheb Ambedkar Technological University',
-      duration: 'June 2019 - July 2023',
+      duration: 'June 2022 - July 2026',
       description: 'Graduated with a B.Tech in Computer Science Engineering, specializing in AI and machine learning. Completed coursework in algorithms, data structures, machine learning, and deep learning.',
       highlights: []
     },
@@ -99,20 +83,16 @@ export const siteConfig = {
     {
       category: 'Data & Vectors',
       icon: 'Database',
-      skills: ['Pinecone', 'Weaviate', 'ChromaDB', 'PostgreSQL', 'Redis'],
+      skills: ['ChromaDB', 'PostgreSQL', 'Redis'],
     },
-    {
-      category: 'Cloud & Ops',
-      icon: 'Network',
-      skills: ['Azure', 'Kubernetes', 'CI/CD'],
-    },
+    
   ],
 
   // Site Metadata
   metadata: {
     title: 'AI/ML Engineer Portfolio',
     description: 'Portfolio of an AI/ML Engineer specializing in GenAI, LLMs, and production-grade machine learning systems.',
-    siteUrl: 'https://faizanpopatiya.com',
+    siteUrl: 'https://ibrahimpopatiya.com',
     ogImage: '/og-image.png', // Default Open Graph image
   },
 
@@ -125,7 +105,7 @@ export const siteConfig = {
   // CTA Section
   cta: {
     heading: "Let's Work Together",
-    description: "Have a project in mind? Let's discuss how we can create something amazing together.",
+    description: "LOOKING FOR INTERNSHIP. Have a project in mind? Let's discuss how we can create something amazing together.",
     primaryButtonText: 'Start a Conversation',
     secondaryButtonText: 'Send Email',
   },

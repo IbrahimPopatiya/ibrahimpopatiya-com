@@ -1,0 +1,238 @@
+---
+demoUrl: "https://intellidocs-demo.com"
+description: Upload documents and ask questions using AI-powered
+  semantic search.
+featured: true
+githubUrl: "https://github.com/IbrahimPopatiya/intellidocs"
+image: /projects/intellidocs.png
+longDescription: IntelliDocs is an AI-powered document intelligence
+  platform that allows users to upload files and ask questions in
+  natural language. It uses embeddings, vector search, and LLMs to
+  retrieve relevant document context and generate accurate answers. The
+  system is designed as a private knowledge engine for personal or
+  company documents.
+tags:
+- FastAPI
+- PostgreSQL
+- Qdrant
+- OpenAI
+- AI/ML
+title: IntelliDocs -- AI Document Knowledge System
+---
+
+## Project Overview
+
+IntelliDocs is an **AI-powered document knowledge system** that allows
+users to upload documents and interact with them through natural
+language questions.
+
+The main problem this project solves is **information retrieval from
+large document collections**. Instead of manually searching through long
+PDFs or documents, users can simply ask questions and receive precise
+answers.
+
+This project was built to demonstrate how **Retrieval-Augmented
+Generation (RAG)** systems work in real-world AI applications.
+
+Target users include:
+
+-   Developers building AI tools
+-   Researchers working with large document sets
+-   Companies managing internal knowledge bases
+
+What makes IntelliDocs unique is its ability to combine **semantic
+search, embeddings, and LLM reasoning** to create a private ChatGPT-like
+experience for documents.
+
+## Key Features
+
+-   **Document Upload & Processing**: Users can upload PDFs or text
+    documents which are automatically processed and indexed.
+-   **Semantic Search**: Questions are converted into embeddings and
+    matched against stored document embeddings.
+-   **Context-Aware AI Answers**: The system retrieves relevant chunks
+    and sends them to the LLM to generate answers.
+-   **Conversation History**: Users can maintain chat conversations with
+    documents.
+-   **Scalable Architecture**: Designed to support large document
+    collections using vector databases.
+
+## Technical Implementation
+
+### Architecture
+
+The system follows a modern **RAG architecture**:
+
+1.  User uploads document
+2.  Document is split into smaller chunks
+3.  Chucks are converted into embeddings
+4.  Embeddings are stored in a vector database
+5.  User asks a question
+6.  System retrieves most relevant chunks
+7.  LLM generates the final answer
+
+Core components:
+
+-   **Frontend**: Web interface for document upload and chat
+-   **Backend**: FastAPI API service
+-   **Database**: PostgreSQL for metadata
+-   **Vector Database**: Qdrant for embedding search
+-   **LLM Integration**: OpenAI API
+
+### Frontend
+
+Example React component:
+
+``` typescript
+import { useState } from 'react'
+
+export default function Chat() {
+  const [question, setQuestion] = useState("")
+
+  return (
+    <div>
+      <input 
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        placeholder="Ask your document a question"
+      />
+    </div>
+  )
+}
+```
+
+**Key Technologies:**
+
+-   Framework: Next.js
+-   Styling: Tailwind CSS
+-   Data Fetching: React Query
+-   UI Components: Custom components
+
+### Backend
+
+Example FastAPI endpoint:
+
+``` python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/health")
+def health_check():
+    return {"status": "running"}
+```
+
+**Infrastructure:**
+
+-   API Framework: FastAPI
+-   Database: PostgreSQL
+-   Vector Search: Qdrant
+-   Authentication: JWT
+-   Deployment: Docker + Cloud hosting
+
+### AI/ML Components
+
+The intelligence layer is built using **Retrieval-Augmented
+Generation**.
+
+-   **Embedding Model**: OpenAI Embeddings
+-   **Vector Database**: Qdrant
+-   **LLM**: GPT-based model
+-   **Chunking Strategy**: 500--800 tokens
+
+Example embedding code:
+
+``` python
+from openai import OpenAI
+
+client = OpenAI()
+
+def create_embedding(text):
+    response = client.embeddings.create(
+        model="text-embedding-3-small",
+        input=text
+    )
+    return response.data[0].embedding
+```
+
+## Challenges & Solutions
+
+### Challenge 1: Efficient Document Search
+
+**Problem:** Searching large documents using traditional keyword search
+produced poor results.
+
+**Solution:** Implemented semantic search using embeddings stored in a
+vector database. This allowed the system to find contextually similar
+content instead of exact keyword matches.
+
+### Challenge 2: Handling Large Documents
+
+**Problem:** Large documents could exceed token limits of language
+models.
+
+**Solution:** Implemented document chunking and retrieval of only the
+most relevant sections before sending them to the LLM.
+
+## Results & Impact
+
+-   **Response Speed:** AI answers generated in under 2 seconds
+-   **Accuracy:** Context-aware answers using document retrieval
+-   **Scalability:** Supports thousands of document chunks
+-   **Developer Value:** Demonstrates production-level RAG architecture
+
+## Key Learnings
+
+1.  **RAG System Design:** Learned how retrieval and generation
+    components work together.
+2.  **Vector Databases:** Gained experience working with semantic search
+    infrastructure.
+3.  **Prompt Engineering:** Improved answer quality using contextual
+    prompts.
+4.  **AI Architecture:** Understood the importance of separating
+    retrieval and reasoning layers.
+
+## Future Enhancements
+
+-   [ ] Multi-document comparison
+-   [ ] Support for images and tables in documents
+-   [ ] Real-time collaboration
+-   [ ] Document summarization features
+
+## Screenshots / Demos
+
+Example project interface:
+
+![Project Screenshot](/projects/intellidocs-screenshot.png)
+
+## Technologies Used
+
+**Frontend:**
+
+-   Next.js
+-   TypeScript
+-   Tailwind CSS
+
+**Backend:**
+
+-   FastAPI
+-   PostgreSQL
+-   Qdrant
+
+**AI/ML:**
+
+-   OpenAI API
+-   Embeddings
+-   Retrieval-Augmented Generation (RAG)
+
+**DevOps:**
+
+-   Docker
+-   GitHub Actions
+-   Cloud deployment
+
+## Links
+
+-   https://intellidocs-demo.com
+-   https://github.com/IbrahimPopatiya/intellidocs
+-   https://docs.example.com

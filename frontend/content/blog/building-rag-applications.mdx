@@ -1,0 +1,142 @@
+---
+author: Faizan Popatiya
+category: AI/ML
+date: 2026-03-08
+excerpt: Learn how to build a simple Retrieval-Augmented Generation
+  (RAG) application using FastAPI, vector databases, and OpenAI
+  embeddings.
+published: true
+title: Building a Simple RAG Application with FastAPI
+---
+
+## Introduction
+
+Retrieval-Augmented Generation (RAG) is one of the most powerful
+patterns in modern AI applications.\
+It allows you to combine **large language models** with **your own
+private data**.
+
+Instead of relying only on the model's training data, the system
+retrieves relevant information from a database and sends it to the LLM
+to generate accurate responses.
+
+In this tutorial, we'll build a **simple RAG system** using:
+
+-   FastAPI
+-   PostgreSQL
+-   Vector database
+-   OpenAI embeddings
+
+## How RAG Works
+
+A RAG system usually follows this pipeline:
+
+1.  User uploads documents
+2.  Documents are split into chunks
+3.  Each chunk is converted into embeddings
+4.  Embeddings are stored in a vector database
+5.  When a user asks a question, relevant chunks are retrieved
+6.  The LLM generates an answer using the retrieved context
+
+### Example Flow
+
+User Question:
+
+"What does the contract say about termination?"
+
+System Process:
+
+1.  Convert question to embedding
+2.  Search vector database
+3.  Retrieve most similar chunks
+4.  Send chunks + question to LLM
+5.  Generate answer
+
+## Technical Implementation
+
+### FastAPI Endpoint
+
+``` python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {"message": "RAG system running"}
+```
+
+### Example Embedding Logic
+
+``` python
+from openai import OpenAI
+
+client = OpenAI()
+
+def generate_embedding(text):
+    response = client.embeddings.create(
+        model="text-embedding-3-small",
+        input=text
+    )
+    return response.data[0].embedding
+```
+
+## Real World Use Cases
+
+RAG is used in many real-world systems:
+
+-   **Document Q&A systems**
+-   **Customer support chatbots**
+-   **Legal document analysis**
+-   **Company knowledge assistants**
+-   **Research assistants**
+
+For example, a company can upload all internal documents and allow
+employees to ask questions like:
+
+"What is the refund policy?"
+
+The AI will retrieve the relevant section and generate an answer.
+
+## Best Practices
+
+-   **Chunk documents properly** (500--1000 tokens)
+-   **Store metadata** with each chunk
+-   **Use semantic search instead of keyword search**
+-   **Cache embeddings for faster performance**
+-   **Use a good vector database** like Qdrant or Pinecone
+
+## Common Pitfalls
+
+> **Warning:** Do not send entire documents to the LLM.\
+> Always retrieve only the most relevant chunks to reduce cost and
+> improve accuracy.
+
+## Conclusion
+
+RAG is becoming the **standard architecture for AI applications** that
+require knowledge from private data.
+
+By combining:
+
+-   Vector search
+-   Embeddings
+-   Large language models
+
+you can build powerful knowledge systems like:
+
+-   AI research assistants
+-   Internal company chatbots
+-   Document intelligence platforms
+
+### Key Takeaways
+
+-   RAG connects LLMs with external knowledge
+-   Vector databases enable semantic search
+-   FastAPI can easily power the backend API
+
+## Additional Resources
+
+-   https://fastapi.tiangolo.com
+-   https://qdrant.tech
+-   https://platform.openai.com
