@@ -90,8 +90,8 @@ export const siteConfig = {
 
   // Site Metadata
   metadata: {
-    title: 'AI/ML Engineer Portfolio',
-    description: 'Portfolio of an AI/ML Engineer specializing in GenAI, LLMs, and production-grade machine learning systems.',
+    title: 'Ibrahim Popatiya Portfolio',
+    description: 'Portfolio of an Software Developer specializing in GenAI, LLMs, and production-grade machine learning systems.',
     siteUrl: 'https://ibrahimpopatiya.com',
     ogImage: '/og-image.png', // Default Open Graph image
   },
